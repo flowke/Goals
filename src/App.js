@@ -1,6 +1,6 @@
 
 
-import OverView from './pages/OverView';
+import App from './navigation/AppNavigation';
 
 
-export default OverView;
+export default App;
