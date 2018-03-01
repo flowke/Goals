@@ -14,7 +14,7 @@ import GoalPage from '../pages/GoalPage';
 
 function functionName() {
   function ss() {
-    
+
   }
 }
 
@@ -30,5 +30,6 @@ export default StackNavigator({
     screen: GoalPage
   },
 },{
-  headerMode: 'screen'
+  headerMode: 'screen',
+  initialRouteName: 'GoalPage'
 });

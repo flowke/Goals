@@ -5,7 +5,9 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export default class Name extends Component{
+import Item from './components/todoItem';
+
+export default class extends Component{
   constructor(props){
       super(props);
   }
@@ -13,7 +15,7 @@ export default class Name extends Component{
   render(){
     return (
       <View style={S.box}>
-        <Text> GoalPage </Text>
+        <Item></Item>
       </View>
     )
   }
@@ -22,7 +24,7 @@ export default class Name extends Component{
 const S = StyleSheet.create({
   box: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    marginTop: 42,
+    paddingHorizontal: 8
   }
 })
