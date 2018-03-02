@@ -16,6 +16,7 @@ export default class extends Component{
   render(){
     return (
       <View style={S.box}>
+        {/* checkbox */}
         <View style={S.checkBoxWrap}>
           <View style={[S.checkBox, S.check]}>
             <Icon
@@ -27,6 +28,7 @@ export default class extends Component{
           </View>
 
         </View>
+        {/* 文字标题 */}
         <View style={S.titleWrap}>
           <Text style={S.todoTitle}>统一讲解</Text>
         </View>
@@ -40,13 +42,16 @@ const S = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 4,
     overflow: 'hidden',
+    height: 44,
     // alignItems: 'center',
     // backgroundColor: 'red'
   },
+
   checkBoxWrap: {
-    padding: 10,
+    paddingHorizontal: 10,
     // alignSelf: 'flex-start',
-    // backgroundColor: 'red'
+    justifyContent: 'center',
+    // backgroundColor: 'blue'
   },
   checkBox: {
     alignItems: 'center',
@@ -61,15 +66,19 @@ const S = StyleSheet.create({
     backgroundColor: '#3878CF',
     borderColor: '#568DD6'
   },
+
   titleWrap: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    // backgroundColor: 'red'
+
+    // backgroundColor: 'green'
   },
   todoTitle: {
-    fontSize: 17,
+    fontSize: 19,
     color: '#464A4D',
-    // backgroundColor: 'red'
+    fontWeight: '500',
+    // backgroundColor: 'red',
+    // lineHeight: 42
   }
 })

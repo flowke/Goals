@@ -16,6 +16,11 @@ export default class extends Component{
     return (
       <View style={S.box}>
         <Item></Item>
+        <Item></Item>
+        <Item></Item>
+        <Item></Item>
+        <Item></Item>
+        <Item></Item>
       </View>
     )
   }

@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Svg, {
+  Circle
+} from 'react-native-svg';
 
 export default class OverView extends Component{
   constructor(props){
@@ -68,6 +71,22 @@ export default class OverView extends Component{
             />
 
           </View>
+
+          {/* goal 列表 */}
+          <View style={S.goalsWrap}>
+            <View style={S.goal}>
+              <Svg {...{width:'50', height: '50'}}>
+                <Circle
+                  {...{
+                    cx: 25,
+                    cy: 25,
+                    r: 25,
+                    fill: '#AAAAAA'
+                  }}
+                />
+              </Svg>
+            </View>
+          </View>
         </ScrollView>
       </View>
     )
@@ -122,6 +141,7 @@ const S = StyleSheet.create({
   scrollWrap: {
     marginTop: 20
   },
+
   labelItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -138,5 +158,10 @@ const S = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#2C3336'
+  },
+
+  goalsWrap: {
+    marginTop: 26,
+    paddingHorizontal: 10
   }
 })

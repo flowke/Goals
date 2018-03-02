@@ -12,18 +12,13 @@ import {
 import OverView from '../pages/OverViewPage';
 import GoalPage from '../pages/GoalPage';
 
-function functionName() {
-  function ss() {
 
-  }
-}
 
 export default StackNavigator({
   OverView: {
     screen: OverView,
     navigationOptions: {
       header: null,
-
     }
   },
   GoalPage: {
@@ -31,5 +26,5 @@ export default StackNavigator({
   },
 },{
   headerMode: 'screen',
-  initialRouteName: 'GoalPage'
+  initialRouteName: 'OverView'
 });
