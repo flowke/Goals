@@ -10,8 +10,14 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, {
-  Circle
+  Circle,
+  Defs,
+  ClipPath,
+  Path,
+  Rect
 } from 'react-native-svg';
+
+let round = Math.PI*2*25;
 
 export default class OverView extends Component{
   constructor(props){
@@ -30,7 +36,6 @@ export default class OverView extends Component{
         </View>
         <ScrollView>
           <View style={S.scrollWrap}>
-
             <Label
               {...{
                 size: 32,
@@ -75,16 +80,10 @@ export default class OverView extends Component{
           {/* goal 列表 */}
           <View style={S.goalsWrap}>
             <View style={S.goal}>
-              <Svg {...{width:'50', height: '50'}}>
-                <Circle
-                  {...{
-                    cx: 25,
-                    cy: 25,
-                    r: 25,
-                    fill: '#AAAAAA'
-                  }}
-                />
-              </Svg>
+              <GoalStatus
+                size={26}
+                deg={360}
+              />
             </View>
           </View>
         </ScrollView>
@@ -119,6 +118,50 @@ function Label({
       </View>
     </TouchableHighlight>
 
+  )
+}
+
+function GoalStatus({
+  size,
+  deg=0,
+
+}){
+  let c = size/2;
+  let shrink = 1;
+  return (
+    <Svg {...{width:size, height: size}}>
+      <Defs>
+        <ClipPath id="clip">
+          <Path
+            d={getArc(c,deg,{x:c,y:c})}
+          />
+
+        </ClipPath>
+        <Circle
+          cx={c}
+          cy={c}
+          r={size/2}
+        />
+      </Defs>
+      <Circle
+        {...{
+          cx: c,
+          cy: c,
+          r: size/2-shrink-1/2,
+          // clipPath: 'url(#clip)',
+          fill: 'none',
+          stroke: '#8F9190',
+          strokeWidth: 1
+        }}
+      />
+      <Rect
+        width={size}
+        height={size}
+        fill="#8F9190"
+        clipPath="url(#clip)"
+
+      />
+    </Svg>
   )
 }
 
@@ -164,4 +207,15 @@ const S = StyleSheet.create({
     marginTop: 26,
     paddingHorizontal: 10
   }
-})
+});
+
+function getArc(r, deg, c){
+  let x = c.x + r*Math.cos((deg-90)*Math.PI/180);
+  let y = c.y + r*Math.sin((deg-90)*Math.PI/180);
+
+  let lx = ly = c.x;
+  if(deg===360) ly=0;
+
+  return `M${c.x},0 A${c.x},${c.y},0,${deg>180?1:1},${1},${x},${y},L${lx},${ly} Z`;
+
+}
